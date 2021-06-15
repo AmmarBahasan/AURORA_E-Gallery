@@ -1,0 +1,121 @@
+<style>
+  h1 {
+    margin-top: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 45px;
+    font-weight: 300;
+    letter-spacing: 6px;
+    margin-bottom: 4rem;
+    color: rgb(45, 66, 97);
+  }
+
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin: 20px auto;
+  }
+
+  input {
+    margin-bottom: 10px;
+  }
+
+  #basic-addon1 {
+    height: 38px;
+    color: rgb(45, 66, 97);
+    background-color: rgb(179, 185, 204, 0.5);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0px 0px 11px rgba(13, 110, 253, 0.6);
+  }
+
+  #map {
+    height: 500px;
+    width: 500px;
+  }
+
+  @media screen and (max-width: 521px) {
+    form {
+      width: 405px;
+    }
+
+    h1 {
+      font-size: 28px;
+    }
+
+  }
+</style>
+
+<h1>Add New Exhibition</h1>
+
+<form method="POST">
+  <input name="Title" type="text" class="form-control" placeholder="Exhibition Name" />
+  <br>
+  <div id="map">
+
+  </div>
+  <input id="lat" name='lat' style="display: none;">
+  <input id="lng" name='lng' style="display: none;">
+
+  <br />
+  <input class="form-control" type="date" name="startDate" placeholder="starting date">
+  <br>
+  <input class="form-control" type="date" name="endDate" placeholder="ending date">
+
+  <br />
+  <select multiple class="selectpicker" multiple data-live-search="true" placeholder="Choose Art piece" name="art">
+    <% artist.art.forEach(piece=> {%>
+
+      <option value='<%=piece._id %>'>
+        <%= piece.name %>
+      </option>
+      <%}) %>
+  </select>
+
+  <br />
+  <button type="submit" class="btn btn-primary">Add</button>
+
+  <script>
+    function initMap() {
+      const myLatlng = { lat: 23.885, lng: 45.079 };
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 4,
+        center: myLatlng,
+      });
+      
+      let infoWindow = new google.maps.InfoWindow({
+        content: "Click the map to get Lat/Lng!",
+        position: myLatlng,
+      });
+      infoWindow.open(map);
+
+      map.addListener("click", (mapsMouseEvent) => {
+
+        infoWindow.close();
+
+        infoWindow = new google.maps.InfoWindow({
+          position: mapsMouseEvent.latLng,
+        });
+        infoWindow.setContent(
+          JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2)
+        );
+
+        document.getElementById('lat').setAttribute('value', mapsMouseEvent.latLng.toJSON().lat)
+        document.getElementById('lng').setAttribute('value', mapsMouseEvent.latLng.toJSON().lng)
+        infoWindow.open(map);
+      });
+    }
+
+  </script>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+
+</form>

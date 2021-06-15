@@ -1,0 +1,145 @@
+<style>
+  .main-container {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 20px;
+    width: 95%;
+    height: 90%;
+    border-radius: 4px;
+  }
+
+  .bg-container {
+    height: 100%;
+    width: 50%;
+    border-radius: 4px 0px 0px 4px;
+    background-image: url("https://images.unsplash.com/photo-1501769214405-5e5ee5125a02?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=698&q=80");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    margin: auto;
+    height: 100%;
+    width: 50%;
+  }
+
+  h2 {
+    color: rgb(45, 66, 97);
+    font-weight: 400;
+    letter-spacing: 6px;
+    text-align: left;
+    text-transform: uppercase;
+    padding-left: 2rem;
+    padding-top: 1rem;
+    margin-bottom: 4rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin: 4px auto;
+  }
+
+  input {
+    margin-bottom: 30px;
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0px 0px 11px rgba(13, 110, 253, 0.6);
+  }
+
+  #basic-addon1 {
+    height: 38px;
+    color: rgb(45, 66, 97);
+    background-color: rgb(179, 185, 204, 0.5);
+  }
+
+  @media screen and (max-width: 1080px) {
+    .bg-container {
+      width: 40%;
+    }
+
+    form {
+      width: 450px;
+    }
+  }
+
+  @media screen and (max-width: 845px) {
+    .bg-container {
+      width: 38%;
+    }
+
+    form {
+      width: 380px;
+    }
+  }
+
+  @media screen and (max-width: 695px) {
+    .main-container {
+      flex-direction: column;
+    }
+
+    .bg-container {
+      width: 100%;
+      height: 100%;
+    }
+
+    .form-container {
+      width: 100%;
+      text-align: center;
+
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+  }
+</style>
+
+<div class="main-container">
+
+  <div class="bg-container">
+  </div>
+
+  <div class="form-container">
+
+    <h2>Create Account</h2>
+
+    <form method="POST" action="/signup">
+
+      <div class="row">
+
+        <div class="col">
+          <input class="form-control" name="firstName" type="text" placeholder="First Name" />
+        </div>
+
+        <div class="col">
+          <input class="form-control" name="lastName" type="text" placeholder="Last Name" />
+        </div>
+
+      </div>
+
+      <input class="form-control" name="email" type="email" placeholder="some@email.com" />
+      <input class="form-control" name="password" type="password" placeholder="Password" />
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">URL:</span>
+        <input type="text" class="form-control" name="image" placeholder="http://YourImage.png">
+      </div>
+      <textarea class="form-control" name="bio" cols="30" rows="2" placeholder="Your bio"></textarea>
+
+      <br>
+      <button type="submit" class="btn btn-primary">Sign Up</button>
+
+    </form>
+  </div>
+</div>

@@ -1,0 +1,217 @@
+<style>
+    .main {
+        margin: 0 auto;
+        height: calc(100vh - (46.6px + 60.8px));
+        width: 95%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #map {
+        border-radius: 4px 0px 0px 4px;
+        width: 50%;
+        height: 90%;
+
+    }
+
+    .right-col {
+        border-radius: 0px 4px 4px 0px;
+        width: 50%;
+        height: 90%;
+        background-color: white;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .right-col h1 {
+        text-transform: uppercase;
+        word-wrap: break-word;
+        letter-spacing: 2px;
+        font-weight: 700;
+    }
+
+    .right-col h6 {
+        text-transform: capitalize;
+        font-weight: 300;
+        font-size: 14px;
+    }
+
+    .right-col h3 {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 500;
+    }
+
+    .features {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .feature-1 {
+        width: 48%;
+        height: 150px;
+    }
+
+    .feature-2 {
+        width: 48%;
+        height: 150px;
+    }
+
+    .feature-img {
+        height: 14rem;
+        width: 100%;
+        margin-bottom: 10px;
+        background-color: dodgerblue;
+    }
+
+
+    .right-col h5 {
+        text-transform: capitalize;
+        letter-spacing: 1px;
+        font-size: 18px;
+        font-weight: 300;
+        text-align: center;
+    }
+
+    .right-col h4 {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 300;
+    }
+
+    .right-col strong {
+        font-weight: 600;
+    }
+
+    @media screen and (max-width: 891px) {
+        .main {
+            width: 100%;
+            margin: 0 auto;
+            flex-direction: column;
+        }
+
+        .left-col {
+            height: 30%;
+            border-radius: 4px 4px 0px 0px;
+        }
+
+        .right-col {
+            height: 65%;
+            border-radius: 0px 0px 4px 4px;
+        }
+
+        .right-col {
+            overflow-y: scroll;
+        }
+
+        .right-col::-webkit-scrollbar {
+            width: 8px;
+            background-color: transparent;
+        }
+
+        .right-col::-webkit-scrollbar-track {
+            border-radius: 10px;
+            background-color: rgb(179, 185, 204, 0.3);
+        }
+
+        .right-col::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background-color: rgb(179, 185, 204, 0.5);
+        }
+
+        .features {
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .feature-1 {
+
+            margin-bottom: 50px;
+        }
+
+        .feature-2 {
+            margin-bottom: 50px;
+        }
+
+        .feature-img {
+            height: 100%;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .features h5 {
+            font-size: 1rem;
+        }
+
+        .right-col h3 {
+            margin-bottom: 20px;
+            margin-top: 30px;
+        }
+
+    }
+</style>
+
+<div class="main">
+
+    <div class="left-col" id="map">
+        <p id="lat"><%=exhibition.lat%></p>
+        <p id="lng" style="display: none;"><%=exhibition.lng%></p>
+    </div>
+
+    <div class="right-col">
+
+        <h1>
+            <%=exhibition.Title%>
+        </h1>
+
+        <h6>
+            <%= moment(exhibition.startDate).format("MMM DD YYYY") %> - <%= moment(exhibition.endDate).format("MMM DD YYYY") %>
+        </h6>
+
+        <h3>Featuring:</h3>
+        <div class="features">
+
+            <div class="feature-1">
+                <div class="feature-img" style='background-image: url(<%=exhibition.art[0].image%>) ;'> </div>
+            </div>
+            <div class="feature-2">
+                <div class="feature-img" style='background-image: url(<%=exhibition.art[1].image%>) ;'> </div>
+            </div>
+
+        </div>
+        <br /> <br />
+        <h4><strong>Artist:</strong>
+            <%=exhibition.artist.firstName%>
+            <%=exhibition.artist.lastName%>
+        </h4>
+    </div>
+
+    <script>
+    
+        function initMap() {
+            
+            exhibitionLat = parseFloat(document.getElementById("lat").innerText);
+            exhibitionLng = parseFloat(document.getElementById("lng").innerText);
+            
+            const myLatlng = { lat: exhibitionLat, lng: exhibitionLng };
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 15,
+                center: myLatlng,
+            });
+            
+            let infoWindow = new google.maps.InfoWindow({
+                position: myLatlng,
+            });
+            
+            infoWindow.open(map);
+        }
+    
+    </script>
+
+</div>

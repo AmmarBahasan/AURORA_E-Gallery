@@ -1,0 +1,60 @@
+<style>
+  h1 {
+    margin-top: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 45px;
+    font-weight: 300;
+    letter-spacing: 6px;
+    margin-bottom: 2rem;
+    color: rgb(45, 66, 97);
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin: 20px auto;
+  }
+
+  input {
+    margin-bottom: 10px;
+  }
+
+  #basic-addon1 {
+    height: 38px;
+    color: rgb(45, 66, 97);
+    background-color: rgb(179, 185, 204, 0.5);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0px 0px 11px rgba(13, 110, 253, 0.6);
+  }
+
+  @media screen and (max-width: 521px) {
+    form {
+      width: 405px;
+    }
+
+    h1 {
+      font-size: 28px;
+    }
+
+  }
+</style>
+
+<h1>Add a New Piece</h1>
+
+<form method="POST">
+  <input name="name" type="text" class="form-control" placeholder="Art Name" />
+  <br />
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">URL:</span>
+    <input type="text" class="form-control" name="image" placeholder="http://YourArtImage.png" />
+  </div>
+
+  <textarea class="form-control" name="discription" cols="30" rows="10" placeholder="Art Piece Description"></textarea>
+
+  <br />
+  <button type="submit" class="btn btn-primary">Add</button>
+</form>

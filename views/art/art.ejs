@@ -1,0 +1,138 @@
+<style>
+  .art-main {
+    margin: 0 auto;
+    height: calc(100vh - (46.6px + 60.8px));
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .art-col {
+    width: 70%;
+    height: 90%;
+  }
+
+  .vertical-line {
+    border-left: 2px solid rgb(211, 211, 211, 0.5);
+    height: 80%;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .detail-col {
+    padding-top: 8rem;
+    padding-right: 1rem;
+    width: 40%;
+    height: 90%;
+    text-align: justify;
+    overflow-y: scroll;
+    color: rgb(45, 66, 97);
+  }
+
+  .detail-col::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent;
+  }
+
+  .detail-col::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: rgb(179, 185, 204, 0.3);
+  }
+
+  .detail-col::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgb(179, 185, 204, 0.5);
+  }
+
+  .detail-col h1 {
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    font-weight: 500;
+  }
+
+  .detail-col p {
+    color: rgb(106, 121, 136);
+    letter-spacing: 1px;
+  }
+
+  #artist {
+    font-weight: 200;
+  }
+
+  @media screen and (max-width: 891px) {
+    .art-main {
+      padding-top: 30px;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .art-col {
+      width: 90vw;
+      height: 90vh;
+    }
+
+    .detail-col {
+      display: flex;
+      flex-direction: row;
+      width: 90vw;
+      height: 90%;
+      text-align: center;
+      align-items: center;
+      justify-content: space-around;
+      overflow-y: scroll;
+      color: rgb(45, 66, 97);
+    }
+
+
+
+    .vertical-line {
+      display: none;
+    }
+
+
+    .detail-col h1 {
+      text-transform: capitalize;
+      letter-spacing: 1px;
+      font-weight: 500;
+      font-size: 18px;
+    }
+
+    .detail-col p {
+      color: rgb(106, 121, 136);
+      font-size: 12px;
+    }
+
+    #artist {
+      font-size: 14px;
+    }
+
+  }
+</style>
+
+<div class="art-main">
+  <div class="art-col" style="
+      background-image: url(<%=art.image%>);
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    "></div>
+
+  <div class="vertical-line"></div>
+  <div class="detail-col">
+    <h1>
+      <%=art.name%>
+    </h1>
+    <h5 id="artist">By: <%=art.artist.firstName+" "+art.artist.lastName%></h5>
+
+    <br /><br />
+
+    <div class=" box">
+        <h5>Description:</h5>
+        <p class="Description-bio">
+          <%=art.discription%>
+        </p>
+  </div>
+</div>
+</div>

@@ -1,0 +1,278 @@
+<style>
+  .main-container {
+    display: flex;
+    flex-direction: row;
+    height: calc(100vh - (46.6px + 50.8px));
+  }
+
+  .profile-container {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0px 10px;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    background-color: white;
+    border-right: 1px solid rgb(211, 211, 211, 0.7);
+    overflow: hidden;
+  }
+
+  .profile-container h2 {
+    color: rgb(13, 110, 253);
+    font-weight: 400;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  .profile-container h4 {
+    color: rgb(45, 66, 97);
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .profile-img {
+    width: 13rem;
+    height: 13rem;
+    border-radius: 50%;
+    background-position: center;
+  }
+
+  .artwork-container {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .artwork-container h3 {
+    color: rgb(13, 110, 253);
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-transform: capitalize;
+  }
+
+  .artwork-container::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent;
+  }
+
+  .artwork-container::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: rgb(179, 185, 204, 0.3);
+  }
+
+  .artwork-container::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgb(179, 185, 204, 0.5);
+  }
+
+  .card {
+    border: none;
+    width: 25rem;
+    height: 40rem;
+  }
+
+  .card-title {
+    margin: 0;
+    display: inline-block;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: lowerrcase;
+    color: rgb(106, 121, 136);
+  }
+
+  .card a {
+    display: inline-block;
+    position: absolute;
+    right: 4%;
+    bottom: 1.8%;
+    background-color: white;
+    border: 1px solid rgb(13, 110, 253);
+    border-radius: 4px;
+    padding: 5px 8px;
+    font-weight: 400;
+    transition: 0.3s;
+    text-transform: capitalize;
+  }
+
+  .card a:hover {
+    background-color: rgb(13, 110, 253);
+    border: 1px solid rgb(13, 110, 253);
+    color: white;
+    box-shadow: 0px 0px 8px rgba(13, 110, 253, 0.6);
+  }
+
+  .image-size {
+    border-radius: 4px 4px 0px 0px;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .artwork-container>* {
+    margin: 20px;
+  }
+
+  @media screen and (max-width: 1100px) {
+    .profile-container {
+      width: 40%;
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 150px;
+      padding-left: 10px;
+    }
+
+    .profile-container h4 {
+      font-size: 1rem;
+      font-weight: 300;
+      text-align: left;
+    }
+
+    .profile-container h2 {
+      font-size: 22px;
+    }
+
+    .card {
+      width: 30rem;
+      height: 25rem;
+    }
+  }
+
+  @media screen and (max-width: 670px) {
+    .main-container {
+      flex-direction: column;
+    }
+
+    .profile-container {
+      flex-direction: column;
+      justify-content: space-around;
+      width: 100vw;
+      height: 30vh;
+    }
+
+    .profile-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 100px;
+      padding-left: 5px;
+    }
+
+    .profile-container h4 {
+      font-size: 0.6rem;
+      font-weight: 300;
+      text-align: center;
+    }
+
+    .profile-container h2 {
+      display: none;
+    }
+
+    .profile-container p {
+      display: none;
+    }
+
+    .work-container {
+      overflow: scroll;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin: 5px 0 0 20px;
+    }
+
+    #addwork-btn {
+      margin: 5px;
+      padding: 20px 10px 25px 10px;
+      font-size: 12px;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .card {
+      width: 20rem;
+      height: 22rem;
+    }
+
+    .image-size {
+      height: 200px;
+      width: 200px;
+      margin-left: 50px;
+      margin-top: 8px;
+      filter: drop-shadow(0px 5px 3px rgb(15, 15, 15));
+    }
+
+    .work-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .work-container {
+      -ms-overflow-style: none;
+      /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+    }
+  }
+
+  @media screen and (max-width: 425px) {
+    .card {
+      width: 15rem;
+      height: 17rem;
+    }
+
+    .image-size {
+      height: 150px;
+      width: 150px;
+      margin-left: 50px;
+      margin-top: 5px;
+      filter: drop-shadow(0px 5px 3px #274270);
+    }
+  }
+</style>
+
+<div class="main-container">
+  <div class="profile-container">
+    <div class="profile-img" style="background-image: url(<%=artist.image%>)"></div>
+    <h2>
+      <%= artist.firstName %>
+    </h2>
+    <h4>
+      <%= artist.bio %>
+    </h4>
+    <h4><strong> contact me: </strong>
+      <%= artist.email %>
+    </h4>
+  </div>
+
+  <div class="artwork-container">
+    <% if(artist.art.length==0) {%>
+      <h3>the artist doesn't have any artwork yet</h3>
+
+      <% } else {%>
+        <% artist.art.forEach(piece=> {%>
+          <div class="card">
+            <div class="image-size" style="background-image: url(<%=piece.image%>)"></div>
+
+            <div class="card-body">
+              <h5 class="card-title">
+                <%= piece.name %>
+              </h5>
+              <a href="/gallery/artPiece/<%=piece._id%>">more info</a>
+            </div>
+          </div>
+          <%});%>
+            <% } %>
+  </div>
+</div>

@@ -1,0 +1,130 @@
+<style>
+  .main-container {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 20px;
+    width: 95%;
+    height: 90%;
+    border-radius: 4px;
+  }
+
+  .bg-container {
+    height: 100%;
+    width: 50%;
+    border-radius: 4px 0px 0px 4px;
+    background-image: url("https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    margin: auto;
+    height: 100%;
+    width: 50%;
+  }
+
+  h2 {
+    padding: 4rem 3rem;
+    margin-bottom: 1rem;
+    color: rgb(45, 66, 97);
+    font-weight: 400;
+    letter-spacing: 6px;
+    text-align: left;
+    text-transform: uppercase;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin: 20px auto;
+  }
+
+  input {
+    margin-bottom: 30px;
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0px 0px 11px rgba(13, 110, 253, 0.6);
+  }
+
+
+  @media screen and (max-width: 1080px) {
+    .bg-container {
+      width: 40%;
+    }
+
+    form {
+      width: 450px;
+    }
+  }
+
+  @media screen and (max-width: 845px) {
+    .bg-container {
+      width: 38%;
+    }
+
+    form {
+      width: 380px;
+    }
+  }
+
+  @media screen and (max-width: 695px) {
+    .main-container {
+      flex-direction: column;
+    }
+
+    .bg-container {
+      width: 100%;
+      height: 100%;
+    }
+
+    .form-container {
+      width: 100%;
+      text-align: center;
+
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    form {
+      width: 350px;
+    }
+  }
+</style>
+
+<div class="main-container">
+
+  <div class="bg-container"></div>
+
+  <div class="form-container">
+
+    <h2>Sign In</h2>
+
+    <form method="POST" action="/signin">
+
+      <input class="form-control" name="email" type="email" placeholder="some@email.com" />
+
+      <input class="form-control" name="password" type="password" placeholder="Password" />
+
+      <br>
+      <button class="btn btn-primary" type="submit">Sign In</button>
+
+    </form>
+
+  </div>
+
+</div>

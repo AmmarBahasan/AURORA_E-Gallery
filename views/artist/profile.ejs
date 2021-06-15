@@ -1,0 +1,381 @@
+<style>
+  .main-container {
+    display: flex;
+    flex-direction: row;
+    height: calc(100vh - (46.6px + 50.8px));
+    padding-bottom: 1%;
+  }
+
+  .profile-container {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 10px;
+    text-align: center;
+    background-color: white;
+    overflow: hidden;
+    flex-wrap: wrap;
+    border-right: 1px solid rgb(211, 211, 211, 0.7);
+    overflow: hidden;
+  }
+
+  .profile-img {
+    width: 13rem;
+    height: 13rem;
+    border-radius: 50%;
+    background-position: center;
+  }
+
+  .profile-container h2 {
+    color: rgb(13, 110, 253);
+    font-weight: 400;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  .profile-container p,
+  h5 {
+    color: rgb(45, 66, 97);
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .btn-outline-primary,
+  .btn-primary {
+    transition: 0.3s;
+  }
+
+  .btn-outline-primary:hover,
+  .btn-primary:hover {
+    box-shadow: 0px 0px 11px rgba(13, 110, 253, 0.6);
+  }
+
+  .work-container {
+    width: 80%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .work-container::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent;
+  }
+
+  .work-container::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: rgb(179, 185, 204, 0.3);
+  }
+
+  .work-container::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgb(179, 185, 204, 0.5);
+  }
+
+  .work-header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 8%;
+    justify-content: space-between;
+    padding: 0px 20px;
+    padding-top: 10px;
+    color: rgb(45, 66, 97);
+  }
+
+  #break {
+    display: none;
+  }
+
+  .work-header button {
+    height: fit-content;
+  }
+
+  .workbody-container {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .workbody-container>* {
+    margin: 20px;
+  }
+
+  .workbody-container h3 {
+    color: rgb(13, 110, 253);
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-transform: capitalize;
+  }
+
+  .card {
+    border: none;
+    width: 25rem;
+    height: 40rem;
+  }
+
+  .card:hover {
+    cursor: pointer;
+    box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+  }
+
+  .image-size {
+    border-radius: 4px 4px 0px 0px;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .card-body {
+    padding-left: 25px;
+    padding-right: 25px;
+    overflow-y: scroll;
+    margin-bottom: 20px;
+    height: 40%;
+  }
+
+  .card-body::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent;
+  }
+
+  .card-body::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: rgb(179, 185, 204, 0.3);
+  }
+
+  .card-body::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgb(179, 185, 204, 0.5);
+  }
+
+  .card-title {
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    color: rgb(45, 66, 97);
+    margin-bottom: 15px;
+  }
+
+  .card-text {
+    color: rgb(106, 121, 136);
+    text-align: justify;
+  }
+
+  .card-body button:hover {
+    box-shadow: 0px 0px 11px rgba(220, 20, 60, 0.5);
+  }
+
+  @media screen and (max-width: 1100px) {
+    .profile-container {
+      width: 40%;
+    }
+
+    .profile-container img {
+      width: 150px;
+      height: 150px;
+      border-radius: 150px;
+      padding-left: 10px;
+    }
+
+    .profile-container h5 {
+      font-size: 1rem;
+      font-weight: 300;
+      text-align: left;
+    }
+
+    .profile-container h1 {
+      font-size: 22px;
+    }
+
+    .work-header button {
+      height: fit-content;
+    }
+  }
+
+  @media screen and (max-width: 664px) {
+    .main-container {
+      height: calc(100% - (46.6px + 50.8px));
+      flex-direction: column;
+    }
+
+    .profile-container {
+      flex-direction: row;
+      justify-content: space-around;
+      /* width: 100vw;
+      height: 30vh; */
+      width: 100%;
+      height: 15%;
+      padding-top: 2%;
+      padding-bottom: 2%;
+    }
+
+    #break {
+      display: block;
+      flex-basis: 100%;
+      height: 20px;
+    }
+
+    .profile-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      padding-left: 5px;
+    }
+
+    .profile-container h5 {
+      font-size: 0.6rem;
+      font-weight: 300;
+      text-align: center;
+    }
+
+    .profile-container h2 {
+      /* display: none; */
+      font-size: 1.5rem;
+    }
+
+    .profile-container p {
+      display: none;
+    }
+
+    .work-container {
+      overflow: scroll;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      /* margin: 5px 0 0 20px; */
+      margin: 0 auto;
+      margin-top: 5px;
+    }
+
+    .work-header {
+      padding-bottom: 0;
+      height: 2.5%;
+    }
+
+    #addwork-btn {
+      /* margin: 5px; */
+      /* padding: 20px 10px 25px 10px; */
+      /* font-size: 12px;
+      font-weight: 500; */
+      /* text-align: center; */
+      height: fit-content;
+    }
+
+    .card {
+      width: 20rem;
+      height: 22rem;
+    }
+
+    .image-size {
+      /* height: 200px;
+      width: 200px; */
+      /* margin-left: 50px;
+      margin-top: 8px; */
+      /* filter: drop-shadow(0px 5px 3px rgb(15, 15, 15)); */
+      height: 100%;
+      width: 100%;
+    }
+
+    .work-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .work-container {
+      -ms-overflow-style: none;
+      /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+    }
+  }
+
+  @media screen and (max-width: 425px) {
+    .card {
+      width: 15rem;
+      height: 17rem;
+    }
+
+    .image-size {
+      /* height: 150px;
+      width: 150px;
+      margin-left: 50px;
+      margin-top: 5px;
+      filter: drop-shadow(0px 5px 3px #274270); */
+      height: 100%;
+      width: 100%;
+    }
+  }
+</style>
+
+<div class="main-container">
+  <div class="profile-container">
+    <div class="profile-img" style="background-image: url(<%=artist.image%>)"></div>
+    <h2>
+      <%= artist.firstName %>
+    </h2>
+    <p class="bio">
+      <%= artist.bio %>
+    </p>
+    <br />
+
+    <h5><strong>Contact me:</strong> <br />
+      <%= artist.email %>
+    </h5>
+    <div id="break"></div>
+    <button class="btn btn-outline-primary" onclick="location.href = 'profile/settings/account'">
+      Settings
+    </button>
+    <button class="btn btn-primary" onclick="location.href = '/profile/addExhibition'">
+      Add Exhibition
+    </button>
+  </div>
+
+  <div class="work-container">
+    <div class="work-header">
+      <h2>My Work</h2>
+      <button id="addwork-btn" class="btn btn-primary" onclick="location.href = '/profile/addArt'">
+        Add Art
+      </button>
+    </div>
+
+    <div class="workbody-container">
+      <% if(artist.art.length==0) {%>
+        <h3>You don't have any work yet 😢</h3>
+
+        <% } else {%>
+          <% artist.art.forEach(piece=> {%>
+            <div class="card">
+              <div class="image-size" style="background-image: url(<%=piece.image%>)"></div>
+
+              <div class="card-body">
+                <h5 class="card-title">
+                  <%= piece.name %>
+                </h5>
+                <p class="card-text">
+                  <%= piece.discription%>
+                </p>
+                <button class="btn btn-outline-danger" onclick="location.href='/profile/deleteArt/<%=piece._id %>'">
+                  Delete Art
+                </button>
+              </div>
+            </div>
+            <%});%>
+              <% } %>
+    </div>
+  </div>
+</div>

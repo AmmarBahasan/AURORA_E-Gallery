@@ -1,0 +1,90 @@
+<style>
+    .gallery-main {
+        margin: 0 auto;
+        width: 95%;
+    }
+
+    .gallery-head h1 {
+        margin-top: 2rem;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 45px;
+        font-weight: 300;
+        letter-spacing: 6px;
+        margin-bottom: 5%;
+        color: rgb(45, 66, 97);
+    }
+
+    .gallery-body {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+
+    .art-card {
+        height: fit-content;
+        width: fit-content;
+        text-align: center;
+        transition: box-shadow .3s;
+        margin-bottom: 2rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        border: none;
+        border-radius: 4%;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 10px;
+    }
+
+    .art-card:hover {
+        cursor: pointer;
+        box-shadow: 0 0 11px rgba(33, 33, 33, .2);
+    }
+
+    .card-title {
+        color: rgb(13, 110, 253);
+        font-weight: 500;
+        padding-top: 25px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .card-detail {
+        color: rgb(106, 121, 136);
+
+    }
+</style>
+
+<div class="gallery-main">
+
+    <div class="gallery-head">
+        <h1> All Exhibitions </h1>
+    </div>
+
+    <div class="gallery-body">
+        <% exhibition.forEach(piece=> { %>
+
+            <div class="art-card  card" id="exhibition-card"
+                onclick="location.href = '/exhibitions/exhibition/<%=piece._id %>' ">
+
+                <div class="card-body">
+                    <div class="image-size" style="background-image: url(<%=piece.artist.image%>)">
+                    </div>
+
+                    <h3 class="card-title">
+                        <%= piece.Title %>
+                    </h3>
+                    <h6 class="card-detail">
+                        <%= moment(piece.startDate).format("MMM DD YYYY") %> - <%= moment(piece.endDate).format("MMM DD YYYY") %>
+                    </h6>
+
+                </div>
+
+            </div>
+
+            <% }); %>
+    </div>
+
+</div>

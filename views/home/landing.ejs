@@ -1,0 +1,172 @@
+<style>
+  .presentation {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    min-height: 80vh;
+    align-items: center;
+  }
+
+  .cover {
+    flex: 1;
+    height: 60vh;
+    padding-left: 5%;
+  }
+
+  .cover img {
+    height: 100%;
+    filter: drop-shadow(0px 0px 11px rgba(33, 33, 33, 0.5));
+    animation: drop 1.5s ease;
+    z-index: 2;
+  }
+
+  .intro {
+    flex: 1;
+  }
+
+  .intro-text h1 {
+    font-size: 70px;
+    font-weight: 700;
+    color: rgb(45, 66, 97);
+    /* color: rgb(13,110,253); */
+    letter-spacing: 6px;
+  }
+
+  .intro-text p {
+    margin-top: 30px;
+    font-size: 22px;
+    color: rgb(106, 121, 136);
+    padding: 3px;
+  }
+
+  .signup {
+    cursor: pointer;
+    z-index: 2;
+    border: 2px solid rgb(13, 110, 253);
+    background: transparent;
+    color: rgb(13, 110, 253);
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+  }
+
+  .signup:hover {
+    background-color: rgb(13, 110, 253);
+    border: 1px solid rgb(13, 110, 253);
+    color: white;
+    box-shadow: 0px 0px 8px rgba(13, 110, 253, 0.6);
+  }
+
+  .artistlist {
+    cursor: pointer;
+    z-index: 2;
+    color: white;
+    border: none;
+    background: rgb(13, 110, 253);
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+  }
+
+  .artistlist:hover {
+    box-shadow: 0px 0px 11px rgba(13, 110, 253, 0.6);
+  }
+
+  .large-circle {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 1;
+    opacity: 0.4;
+    height: 77%;
+  }
+
+  .small-cirlce {
+    position: absolute;
+    bottom: 0%;
+    left: 20%;
+    z-index: 1;
+  }
+
+  @keyframes drop {
+    0% {
+      opacity: 0;
+      transform: translateY(-80px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    .presentation {
+      flex-direction: column;
+    }
+
+    .intro {
+      margin-top: 3vh;
+      text-align: center;
+    }
+
+    .intro-text h1 {
+      padding-top: 1.5rem;
+      font-size: 50px;
+    }
+
+    .intro-text p {
+      font-size: 16px;
+    }
+
+    .cover img {
+      margin: 0 auto;
+      margin-top: 1rem;
+      width: 100%;
+      height: auto;
+    }
+
+    .large-circle,
+    .small-cirlce {
+      opacity: 0.2;
+    }
+
+    cite {
+      font-weight: 400;
+      font-style: italic;
+    }
+  }
+</style>
+
+<main>
+  <section class="presentation">
+    <div class="intro">
+
+      <div class="intro-text">
+        <h1>AURORA</h1>
+        <p>
+          Art is no always about pretty things, it's about who we are,
+          what happened to us, and how our lives are affected.<br>
+          <cite class="blockquote-footer">Elizabeth Broun</cite>
+        </p>
+      </div>
+
+      <div class="btn">
+        <button onclick="location.href = '/signup'" class="signup"> Signup</button>
+        <button onclick="location.href = '/gallery'" class="artistlist">Gallery</button>
+      </div>
+
+    </div>
+
+    <div class="cover">
+      <img src="https://www.portraitflip.com/wp-content/uploads/The-Starry-Night.jpg" alt="" />
+    </div>
+  </section>
+
+  <img class="large-circle" src="https://svgshare.com/i/WNW.svg" alt="" />
+  <img class="small-cirlce" src="https://svgshare.com/i/WPX.svg" alt="" />
+</main>
